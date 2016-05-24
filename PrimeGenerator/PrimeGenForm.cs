@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace PrimeGenerator
 {
-    public partial class Form1 : Form
+    public partial class PrimeGenForm : Form
     {
         private CancellationTokenSource cts;
 
-        public Form1()
+        public PrimeGenForm()
         {
             InitializeComponent();
         }
@@ -22,19 +22,19 @@ namespace PrimeGenerator
             cts = new CancellationTokenSource();
             var token = cts.Token;
 
-            StartCountdownDelegate countdown = new StartCountdownDelegate(StartCountdown);
-            countdown.BeginInvoke(60, new AsyncCallback(TimesUpCallback), null);
+            StartCountdownDelegate countdown = StartCountdown;
+            countdown.BeginInvoke(60, TimesUpCallback, null);
 
-            GeneratePrimeDelegate calc = new GeneratePrimeDelegate(GeneratePrime);
+            GeneratePrimeDelegate calc = GeneratePrime;
             calc.BeginInvoke(1000000000, token, null, null);
         }
 
         private delegate void StartCountdownDelegate(int seconds);
         private void StartCountdown(int seconds)
         {
+            ShowCountdownDelegate showCountdown = ShowCountDown;
             for (var x = 1; x <= seconds; x++)
             {
-                ShowCountdownDelegate showCountdown = new ShowCountdownDelegate(ShowCountDown);
                 BeginInvoke(showCountdown, new object[] { x });
                 Thread.Sleep(1000);
             }
@@ -61,6 +61,7 @@ namespace PrimeGenerator
         delegate void ShowIfPrimeNumberDelegate(int number);
         private void DisplayPrimeNumber(int number)
         {
+            ShowIfPrimeNumberDelegate showPrime = DisplayPrimeNumber;
             if (txtValue.InvokeRequired == false)
             {
                 //rtxtPrimeNumbers.Text += "  " + number;
@@ -68,7 +69,6 @@ namespace PrimeGenerator
             }
             else
             {
-                ShowIfPrimeNumberDelegate showPrime = new ShowIfPrimeNumberDelegate(DisplayPrimeNumber);
                 BeginInvoke(showPrime, new object[] { number });
             }
         }

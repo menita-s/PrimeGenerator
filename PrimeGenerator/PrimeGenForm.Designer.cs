@@ -1,6 +1,6 @@
 ﻿namespace PrimeGenerator
 {
-    partial class Form1
+    partial class PrimeGenForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,7 @@
             // 
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.Location = new System.Drawing.Point(20, 86);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(112, 32);
             this.btnStart.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.txtValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValue.Location = new System.Drawing.Point(20, 137);
-            this.txtValue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtValue.Margin = new System.Windows.Forms.Padding(4);
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(258, 24);
             this.txtValue.TabIndex = 1;
@@ -74,7 +74,7 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Click Start to begin generation prime numbers";
             // 
-            // Form1
+            // PrimeGenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -84,9 +84,9 @@
             this.Controls.Add(this.txtValue);
             this.Controls.Add(this.btnStart);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "PrimeGenForm";
+            this.Text = "PrimeGenForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
