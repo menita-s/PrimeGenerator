@@ -64,8 +64,8 @@ namespace PrimeGenerator
             ShowIfPrimeNumberDelegate showPrime = DisplayPrimeNumber;
             if (txtValue.InvokeRequired == false)
             {
-                //rtxtPrimeNumbers.Text += "  " + number;
                 txtValue.Text = number.ToString();
+                //Console.WriteLine(number);
             }
             else
             {
@@ -76,8 +76,7 @@ namespace PrimeGenerator
         private delegate void GeneratePrimeDelegate(int maxNum, CancellationToken token);
         void GeneratePrime(int maxNum, CancellationToken token)
         {
-            DisplayPrimeNumber(2);
-            for (int i = 3; i < maxNum; i++)
+            for (int i = 2; i < maxNum; i++)
             {
                 if (token.IsCancellationRequested)
                 {
@@ -92,16 +91,14 @@ namespace PrimeGenerator
 
         private bool IsPrimeNumber(long number)
         {
-            for (int k = 3; k <= Math.Ceiling(Math.Sqrt(number)); k++)
+            for (int j = 2; j <= Math.Ceiling(Math.Sqrt(number)); ++j)
             {
-                if (number > k && number % k == 0)
-                    break;
-                if (k >= Math.Ceiling(Math.Sqrt(number)) || number == k)
+                if (number != j && number % j == 0)
                 {
-                    return true;
+                    return false;
                 }
             }
-            return false;
+            return true;
         }
     }
 }
